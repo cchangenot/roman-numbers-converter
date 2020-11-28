@@ -9,14 +9,17 @@ window.addEventListener("load", () => {
     event.preventDefault();
   });
 
+  const eventSource = new EventSource("http://localhost:8080/roman-number");
+  eventSource.onmessage = (event) => {
+    const romanNumber = JSON.parse(event.data).value;
+    convertResult.textContent = romanNumber;
+  };
+
   convertParameter.addEventListener("change", () => {
     convertToRomanNumber(convertParameter.value)
       .catch((error) => {
         console.error(error);
         convertResult.textContent = "";
-      })
-      .then((romanNumber) => {
-        convertResult.textContent = romanNumber;
       });
   });
 
@@ -25,7 +28,5 @@ window.addEventListener("load", () => {
     if (!response.ok) {
       throw new Error(`An error occurred: ${response.status}`);
     }
-    const romanNumber = await response.json();
-    return romanNumber.value;
   }
 });

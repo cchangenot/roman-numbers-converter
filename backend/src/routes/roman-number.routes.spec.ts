@@ -3,7 +3,7 @@ import app from "../app";
 
 describe("GET /roman-numbers/:integer", () => {
 
-  it("should return 200 when integer parameter is valid", async () => {
+  it("should return 202 when integer parameter is valid", async () => {
     // Given
     const route: string = "/roman-number/1";
 
@@ -11,8 +11,8 @@ describe("GET /roman-numbers/:integer", () => {
     const response = await request(app).get(route);
 
     // Then
-    expect(response.status).toBe(200);
-    expect(response.body).toEqual({value: "I"});
+    expect(response.status).toBe(202);
+    expect(response.body).toEqual({});
   });
 
   it("should return 400 when integer parameter is invalid", async () => {
@@ -32,16 +32,5 @@ describe("GET /roman-numbers/:integer", () => {
         "value": "-1",
       }]
     });
-  });
-
-  it("should return 404 when integer parameter is empty", async () => {
-    // Given
-    const route: string = "/roman-number/";
-
-    // When
-    const response = await request(app).get(route);
-
-    // Then
-    expect(response.status).toBe(404);
   });
 });
