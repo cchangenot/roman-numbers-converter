@@ -1,0 +1,7 @@
+# IntelliJ IDEA
+.idea
+*.iml
+
+# Generated folders and files
+**/node_modules
+**/dist

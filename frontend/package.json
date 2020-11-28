@@ -1,0 +1,11 @@
+{
+  "name": "roman-numbers-converter-frontend",
+  "version": "1.0.0",
+  "description": "Converts natural numbers between 0 and 100 to roman numbers",
+  "private": true,
+  "author": "Clément CHANGENOT",
+  "license": "ISC",
+  "scripts": {
+    "start": "start src/index.html"
+  }
+}
